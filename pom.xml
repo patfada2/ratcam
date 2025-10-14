@@ -69,7 +69,7 @@
 				<configuration>
 					<packageName>onvif.wsdl</packageName>
 					<wsdlUrls>
-						<wsdlUrl>file:///C:/Users/patri/git/ratcam2/src/main/resources/media_1.wsdl</wsdlUrl>
+						<wsdlUrl>file:///C:/Users/patri/git/ratcam/src/main/resources/media_1.wsdl</wsdlUrl>
 						
 					</wsdlUrls>
 					<sourceDestDir>${sourcesDir}</sourceDestDir>

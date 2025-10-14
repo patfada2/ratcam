@@ -37,28 +37,27 @@ public class SoapInterceptor implements ClientInterceptor {
 		// TODO Auto-generated method stub
 		SoapMessage soapMessage = (SoapMessage) messageContext.getRequest();
 		soapMessage.getEnvelope().addNamespaceDeclaration("ns3", "http://www.onvif.org/ver10/media/wsdl");
-		log.info("updated soap header = " + soapMessage.getEnvelope().toString());
+		log.debug("updated soap header = " + soapMessage.getEnvelope().toString());
 
 		SoapBody soapBody = soapMessage.getSoapBody();
 		Source bodySource = soapBody.getPayloadSource();
 		DOMSource bodyDomSource = (DOMSource) bodySource;
 
-		Element el = (Element) bodyDomSource.getNode(); // the request eleemnt
+		Element el = (Element) bodyDomSource.getNode(); // the request element
 	
-
 		NamedNodeMap attributes = el.getAttributes();
 		
-		ArrayList<String> s = new ArrayList<String>();
+		ArrayList<String> attrNames = new ArrayList<String>();
 		for (int k = 0; k < attributes.getLength(); k++) {
 		 {
 			String attr = attributes.item(k).getNodeName();
 			log.info("att: " + attr);
-			s.add(attr);
-					}
+			attrNames.add(attr);
+			}
 		}
-		 for (Iterator<String> it = s.iterator(); it.hasNext(); ) {
-	            String fruit = it.next(); // Get the next element
-	            el.removeAttribute(fruit);	
+		 for (Iterator<String> it = attrNames.iterator(); it.hasNext(); ) {
+	            String theAttr = it.next(); // Get the next element
+	            el.removeAttribute(theAttr);	
 	        }
 		
 
