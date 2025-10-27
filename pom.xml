@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>mesh</groupId>
-	<artifactId>RatCam3</artifactId>
+	<artifactId>RatCam</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>RatCam3</name>
+	<name>RatCam</name>
 	<description>image capture and recognition</description>
 	<url/>
 	<licenses>
@@ -35,28 +35,37 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
-		
-	   
- <dependency>
-    <groupId>jakarta.xml.bind</groupId>
-    <artifactId>jakarta.xml.bind-api</artifactId>
-    <version>2.3.3</version> 
-</dependency>
-<dependency>
-    <groupId>com.sun.xml.bind</groupId>
-    <artifactId>jaxb-impl</artifactId>
-   <version>2.3.3</version> 
-    <scope>runtime</scope>
-</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-web</artifactId>
+    	</dependency>
 
-<dependency>
-        <groupId>com.sun.xml.messaging.saaj</groupId>
-        <artifactId>saaj-impl</artifactId>
-        <version>1.5.3</version> <!-- Use the latest stable version -->
-    </dependency>
-    
-    
-			
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+		    <version>3.2.1</version>
+		</dependency>
+			   
+		 <dependency>
+		    <groupId>jakarta.xml.bind</groupId>
+		    <artifactId>jakarta.xml.bind-api</artifactId>
+		    <version>2.3.3</version> 
+		</dependency>
+		<dependency>
+		    <groupId>com.sun.xml.bind</groupId>
+		    <artifactId>jaxb-impl</artifactId>
+		   <version>2.3.3</version> 
+		    <scope>runtime</scope>
+		</dependency>
+	
+		<dependency>
+	        <groupId>com.sun.xml.messaging.saaj</groupId>
+	        <artifactId>saaj-impl</artifactId>
+	        <version>1.5.3</version> <!-- Use the latest stable version -->
+	    </dependency>
+	    
+	    
+				
 		<dependency>
 		    <groupId>io.github.openfeign</groupId>
 		    <artifactId>feign-hc5</artifactId>
@@ -73,7 +82,7 @@
 		    <artifactId>feign-slf4j</artifactId>
 		   
 		</dependency>
-
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

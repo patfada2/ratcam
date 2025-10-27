@@ -20,21 +20,14 @@ import onvif.GetSnapshotUriResponse;
 import javax.xml.soap.SOAPConstants;
 
 
-@Component
-public class RatCamRunner implements CommandLineRunner {
+public class CameraClient  {
 	
+	private JAXBContextFactory jaxbFactory;
+	OnvifSoapClient client;
+	
+    public  CameraClient(){
 
-
-   
-    @Override
-    public void run(String... args) throws Exception {
-    	
-        //System.out.println("Application started. Invoking MyBean's method...");
-        //onvifClient.getSnapshot();
-        //onvifClient.getEvents();
-    
-    	
-    	JAXBContextFactory jaxbFactory = new JAXBContextFactory.Builder()
+    	jaxbFactory = new JAXBContextFactory.Builder()
     		      .withMarshallerJAXBEncoding("UTF-8").build();
 
     	SOAPEncoder.Builder soapEncoderbuilder = new SOAPEncoder.Builder();
@@ -45,7 +38,7 @@ public class RatCamRunner implements CommandLineRunner {
     	OnvifSoapInterceptor interceptor = new OnvifSoapInterceptor();
     	interceptor.setSoapDecoder(soapDecoder);
     	
-    	OnvifSoapClient client = Feign.builder()
+    	 client = Feign.builder()
     			  .encoder(soapEncoder)
     			  .errorDecoder(new SOAPErrorDecoder())
     			  .logger(new Slf4jLogger())
@@ -53,6 +46,15 @@ public class RatCamRunner implements CommandLineRunner {
     			  .decoder(soapDecoder)
     			  .requestInterceptor( new OnvifSoapInterceptor())
     			  .target(OnvifSoapClient.class, "http://192.168.10.109:80/onvif/device_service");
+    	
+    }
+
+    public void getSnapshot() throws Exception {
+    	
+        //System.out.println("Application started. Invoking MyBean's method...");
+        //onvifClient.getSnapshot();
+        //onvifClient.getEvents();
+    
     	
 
    	 	GetSnapshotUri request = new GetSnapshotUri();
