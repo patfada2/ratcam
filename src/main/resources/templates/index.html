@@ -1,11 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Baeldung Pet Store</title>
-    </head>
-    <body>
-        <h6>Pet Store</h6>
-        <img th:src="@{pic.jpg}" alt="">
-    </body>
+<html lang="en">
+
+<head>
+	<title>Rat Cam</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+	
+
+	<title>Rat Cam</title>
+
+
+
+</head>
+
+<body>
+
+
+
+	<div class="row row bg-primary  pt-3">
+		<div class="col-sm-2  border border-primary">
+
+			<div class="dropdown">
+				<button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">
+					Menu
+				</button>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="javascript:readVoltage();">GetSnapshot</a></li>
+					<li><a class="dropdown-item" href="javascript:readRelayState();">Read Relay State</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-10  border border-primary">
+			<H1>Rat Cam</H1>
+		</div>
+	</div>
+
+	<div class="row bg-light  border border-primary id= left">
+		
+	</div>
+	
+	<div class="col-sm-3  border border-primary" id="right">
+
+	</div>
+
+
+
+
+
+
 </html>
