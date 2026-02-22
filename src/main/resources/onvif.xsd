@@ -5,12 +5,65 @@
 	xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2">
 
 	<xs:simpleType name="ReferenceToken">
-
-
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="64" />
 		</xs:restriction>
 	</xs:simpleType>
+
+	<xs:complexType name="SimpleItem">
+		<xs:attribute name="Name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Item name.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Value" type="xs:anySimpleType"
+			use="required">
+			<xs:annotation>
+				<xs:documentation>Item value. The type is defined in the
+					corresponding description.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+
+	<xs:simpleType name="PropertyOperation">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Initialized" />
+			<xs:enumeration value="Deleted" />
+			<xs:enumeration value="Changed" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	
+	
+		<xs:complexType name = "ItemList">
+
+			<xs:sequence>
+				<xs:element name="simpleItem" type="tt:SimpleItem"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+			
+		</xs:complexType>
+	
+
+	<xs:element name="Message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Source" type="tt:ItemList" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Token value pairs that triggered this message. Typically only one item is present.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Key" type="tt:ItemList" minOccurs="0"/>
+				<xs:element name="Data" type="tt:ItemList" minOccurs="0"/>
+				
+			</xs:sequence>
+			<xs:attribute name="UtcTime" type="xs:dateTime" use="required"/>
+			<xs:attribute name="PropertyOperation" type="tt:PropertyOperation"/>
+			<xs:anyAttribute processContents="lax"/>
+		</xs:complexType>
+	</xs:element>
 
 	<xs:complexType name="MediaUri">
 		<xs:sequence>

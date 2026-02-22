@@ -1,0 +1,38 @@
+<xsd:schema targetNamespace="http://docs.oasis-open.org/wsn/b-2" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wsrf-bf="http://docs.oasis-open.org/wsrf/bf-2" xmlns:wstop="http://docs.oasis-open.org/wsn/t-1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ 
+   <xsd:import namespace="http://www.w3.org/2005/08/addressing" schemaLocation="http://www.w3.org/2005/08/addressing/ws-addr.xsd"/>
+ 
+   <!--===================== Misc. Helper Types =====================-->
+
+
+<xsd:element name="NotificationMessage" type="wsnt:NotificationMessageHolderType"/>
+
+<xsd:element name="Topic" type="wsnt:TopicExpressionType" />
+
+<xsd:complexType name="TopicExpressionType" mixed="true">
+		<xsd:sequence>
+			<xsd:any minOccurs="0" maxOccurs="1" processContents="lax" />
+		</xsd:sequence>
+		<xsd:attribute name="Dialect" type="xsd:anyURI"
+			use="required" />
+		<xsd:anyAttribute />
+	</xsd:complexType>
+
+
+<xsd:complexType name="NotificationMessageHolderType">
+		<xsd:sequence>
+			
+			<xsd:element ref="wsnt:Topic" minOccurs="0" maxOccurs="1" />
+			
+			<xsd:element name="Message">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:any namespace="##any" processContents="lax"
+							minOccurs="1" maxOccurs="1" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+</xsd:schema>

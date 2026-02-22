@@ -1,6 +1,7 @@
 package mesh;
 
 import java.io.BufferedInputStream;
+import java.io.Console;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -44,10 +45,20 @@ public class RatCamApplication {
 		}
 
 	}
+	
+	  public static void waitForEnter() {
+		    Console c = System.console();
+		    if (c != null) {
+		     
+		      c.readLine();
+		    }
+		  }
 
-	@Scheduled(fixedRate = 10000)
+	@Scheduled(fixedDelay = 10000)
 	public void scheduleFixedRateTask() {
 		System.out.println("...");
+		//waitForEnter();
+		
 		try {
 			
 			if (camera.pullMessages()) {

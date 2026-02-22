@@ -72,6 +72,8 @@ public class CameraClient {
 		Object obj = client.pullMessages(request);
 
 		PullMessagesResponse response = (PullMessagesResponse) obj;
+		
+
 
 		if (response.getNotificationMessage() != null) {
 			if (!response.getNotificationMessage().isEmpty())
